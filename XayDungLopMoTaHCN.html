@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+<div id="text">
+
+</div>
+<canvas id="myCanvas"></canvas>
+<br>
+</body>
+<script>
+    class Rectangle {
+        long;
+        width;
+
+        constructor(long, width) {
+            this.long = long;
+            this.width = width;
+        }
+
+        getlong() {
+            return this.long
+        }
+
+        getwidth() {
+            return this.width
+        }
+
+        setlong(long) {
+            this.long = long
+        }
+
+        setwidth(width) {
+            this.width = width
+        }
+
+        area() {
+            return this.long * this.width;
+        }
+
+        round() {
+            return 2 * (this.long + this.width);
+        }
+
+        show() {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.moveTo(0, 0);
+            ctx.lineTo(200, 0);
+            ctx.lineTo(200, 100);
+            ctx.lineTo(0, 100);
+            ctx.lineTo(0, 0)
+            ctx.stroke();
+        }
+    }
+
+    let abcd = new Rectangle(15, 2);
+    abcd.setlong(5);
+    abcd.setwidth(2)
+    let s = abcd.area();
+    let c = abcd.round()
+    document.getElementById('text').innerHTML = ('Hình chữ nhật có chiều dài: ' + abcd.getlong() + '<br>'
+        + 'Hình chữ nhật có chiều rộng: ' + abcd.getwidth() + '<br>'
+        + 'Diện tích của hình chữ nhật là: ' + s + '<br>'
+        + 'Chu vi của hình chữ nhật là: ' + c)
+    abcd.show()
+</script>
+</html>
